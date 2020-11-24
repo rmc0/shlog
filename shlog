@@ -107,7 +107,7 @@ get_post_date() {
 # get list of all posts
 get_post_list() {
 	posts=''
-	for post in ${site_root}/${posts_dir}/*.html; do
+	for post in ${posts_dir}/*.html; do
 		if [ "$(bname "$post")" = "index.html" ]; then
 			continue
 		fi
@@ -119,7 +119,7 @@ get_post_list() {
 # get list of unposted posts (.md files without their .html counterparts)
 get_unpost_list() {
 	posts=''
-	for post in ${site_root}/${posts_dir}/*.md; do
+	for post in ${posts_dir}/*.md; do
 		# if the .html exists, it has already been compiled
 		if [ -f "${post%%.*}.html" ]; then
 			continue
